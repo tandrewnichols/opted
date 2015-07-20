@@ -4,7 +4,8 @@ module.exports = function(grunt) {
   tm(grunt, {
     jit: {
       travis: 'grunt-travis-matrix',
-      matrix: 'grunt-travis-matrix'
+      matrix: 'grunt-travis-matrix',
+      istanbul: 'grunt-simple-istanbul'
     }
   });
   grunt.registerTask('mocha', ['mochaTest:test']);

@@ -48,5 +48,8 @@
     "proxyquire": "^1.6.0",
     "sinon": "^1.15.4",
     "task-master": "^2.2.1"
+  },
+  "dependencies": {
+    "lodash": "^3.10.0"
   }
 }
