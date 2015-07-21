@@ -15,7 +15,7 @@ Opted is _not_ a command line option parser. Rather, it is a library for stringi
 ```js
 var opted = require('opted');
 var args = opted({ foo: 'bar' });
-console.log(args); // "--foo bar"
+console.log(args); // ['--foo', 'bar']
 ```
 
 ## Types of flags
@@ -25,8 +25,8 @@ console.log(args); // "--foo bar"
 Options are [kebab-cased](https://lodash.com/docs#kebabCase) and prefixed with '--'.
 
 ```js
-console.log( opted({ foo: 'bar' }) ); // '--foo bar'
-console.log( opted({ fooBar: 'baz' }) ); // '--foo-bar baz'
+console.log( opted({ foo: 'bar' }) ); // ['--foo', 'bar']
+console.log( opted({ fooBar: 'baz' }) ); // ['--foo-bar', 'baz']
 ```
 
 ### Short
@@ -34,7 +34,7 @@ console.log( opted({ fooBar: 'baz' }) ); // '--foo-bar baz'
 Options that have single letter abbreviations can also be used.
 
 ```js
-console.log( opted({ f: 'bar' }) ); // '-f bar'
+console.log( opted({ f: 'bar' }) ); // ['-f', 'bar']
 ```
 
 ### Boolean
@@ -42,8 +42,8 @@ console.log( opted({ f: 'bar' }) ); // '-f bar'
 Options that are simple "on", but have no value, can be set to `true`. Setting a flag to false, will add 'no' to the beginning.
 
 ```js
-console.log( opted({ bananas: true }) ); // '--bananas'
-console.log( opted({ bananas: false }) ); // '--no-bananas'
+console.log( opted({ bananas: true }) ); // ['--bananas']
+console.log( opted({ bananas: false }) ); // ['--no-bananas']
 ```
 
 ### Equal style
@@ -51,7 +51,7 @@ console.log( opted({ bananas: false }) ); // '--no-bananas'
 Options that include an equal sign will keep the equal sign.
 
 ```js
-console.log( opted({ 'name=', 'Andrew' }) ); // '--name=Andrew'
+console.log( opted({ 'name=', 'Andrew' }) ); // ['--name=Andrew']
 ```
 
 ### List
@@ -59,7 +59,7 @@ console.log( opted({ 'name=', 'Andrew' }) ); // '--name=Andrew'
 Multiple options for a single flag can be passed in an array.
 
 ```js
-console.log( opted({ member: ['Bob', 'Larry'] }) ); // '--member Bob --member Larry'
+console.log( opted({ member: ['Bob', 'Larry'] }) ); // ['--member', 'Bob', '--member', 'Larry']
 ```
 
 ## But wait, the tool I need to pass args to is some bizarre abomination like "find" that uses single dashes...
@@ -67,7 +67,7 @@ console.log( opted({ member: ['Bob', 'Larry'] }) ); // '--member Bob --member La
 No problem. Just enable crazy-arg mode by passing true as the second parameter.
 
 ```js
-console.log( opted({ hello: 'world' }, true) ); // '-hello world'
+console.log( opted({ hello: 'world' }, true) ); // ['-hello', 'world']
 ```
 
 ## Contributing
