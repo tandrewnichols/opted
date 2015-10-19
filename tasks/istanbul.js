@@ -5,5 +5,5 @@ module.exports = {
       dir: 'coverage'
     },
     cmd: 'cover grunt mocha'
-  },
+  }
 };
