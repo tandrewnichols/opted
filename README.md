@@ -72,4 +72,4 @@ console.log( opted({ hello: 'world' }, true) ); // ['-hello', 'world']
 
 ## Contributing
 
-I'll be happy to merge any pull request that adds value and has passing tests. Tests are run with `grunt`.
+Please see [the contribution guidelines](CONTRIBUTING.md).

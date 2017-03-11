@@ -1,5 +1,3 @@
-expect = require('indeed').expect
-
 describe 'opted', ->
   Given -> @options =
     a: true
@@ -9,11 +7,12 @@ describe 'opted', ->
     long: 'baz'
     'name=': 'Andrew'
     list: ['rope', 'jelly']
+    X: true
   Given -> @opted = require '../lib/opted'
 
   context 'singleDash false', ->
     When -> @args = @opted(@options)
-    Then -> expect(@args).to.deep.equal [
+    Then -> @args.should.eql [
       '-a',
       '-b',
       'b',
@@ -25,12 +24,13 @@ describe 'opted', ->
       '--list',
       'rope',
       '--list',
-      'jelly'
+      'jelly',
+      '-X'
     ]
 
   context 'singleDash true', ->
     When -> @args = @opted(@options, true)
-    Then -> expect(@args).to.deep.equal [
+    Then -> @args.should.eql [
       '-a',
       '-b',
       'b',
@@ -42,5 +42,6 @@ describe 'opted', ->
       '-list',
       'rope',
       '-list',
-      'jelly'
+      'jelly',
+      '-X'
     ]
