@@ -1,10 +1,12 @@
 {
   "name": "opted",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Stringify an object to command line options",
   "main": "lib/opted.js",
   "scripts": {
-    "test": "grunt"
+    "test": "grunt",
+    "codeclimate": "codeclimate-test-reporter < coverage/lcov.info",
+    "travis": "grunt ci"
   },
   "repository": {
     "type": "git",

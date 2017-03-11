@@ -13,7 +13,6 @@ ratings:
    paths:
     - "lib/**.js"
 exclude_paths:
-  - "dist/**"
   - "tasks/**"
   - "test/**"
   - "**.json"
