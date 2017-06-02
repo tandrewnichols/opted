@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/tandrewnichols/opted",
   "devDependencies": {
-    "codeclimate-test-reporter": "^0.4.1",
+    "codeclimate-test-reporter": "^0.5.0",
     "coffee-script": "^1.12.4",
     "eslint-codeframe-formatter": "^1.0.2",
     "grunt": "^1.0.1",
